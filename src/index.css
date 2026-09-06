@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: "Big Shoulders Display", sans-serif;
+}
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Transition douce du changement de thème clair/sombre.
+   -self : sur l'élément racine (fond général, ne se propage pas aux enfants).
+   -fade : sur les sections dont le fond ET les bordures doivent transitionner ;
+   le texte est volontairement exclu (change instantanément), pour éviter tout
+   décalage visuel entre les éléments imbriqués pendant la transition. */
+.theme-fade-self {
+  transition: background-color 400ms ease;
+}
+.theme-fade,
+.theme-fade * {
+  transition: background-color 400ms ease, border-color 400ms ease;
+}
+
+/* Défilement infini du fond étoilé du hero (voir components/Starfield.jsx) */
+@keyframes sky-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.sky-drift {
+  animation: sky-drift 140s linear infinite;
+}
