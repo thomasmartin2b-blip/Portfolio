@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: "Big Shoulders Display", sans-serif;
+}
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Transition douce entre le mode clair et le mode sombre */
+.theme-fade-self {
+  transition: background-color 400ms ease;
+}
+.theme-fade,
+.theme-fade * {
+  transition: background-color 400ms ease, border-color 400ms ease;
+}
+
+/* Défilement infini du fond étoilé du hero */
+@keyframes sky-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.sky-drift {
+  animation: sky-drift 140s linear infinite;
+}
